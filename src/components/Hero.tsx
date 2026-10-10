@@ -1,3 +1,4 @@
+import heroImage from '@/assets/images/hero-international.jpg';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { useLang } from '@/i18n/LanguageContext';
 import { HERO, INTERNATIONAL_VISITS } from '@/i18n/content';
@@ -60,60 +61,27 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="sr-reveal mx-auto w-full max-w-[540px] lg:me-0">
-          <div className="relative aspect-[0.98] overflow-hidden rounded-[2rem] border border-clay-200/80 bg-gradient-to-br from-[#efe2d2] via-[#e8d5bf] to-[#d7c2a9] p-5 shadow-[0_28px_80px_rgba(91,60,46,0.12)] sm:rounded-[2.5rem] sm:p-8">
-            <div className="absolute inset-0 opacity-45" aria-hidden="true">
-              <div className="absolute -end-20 -top-20 h-[78%] w-[78%] rounded-full border border-white/60" />
-              <div className="absolute -end-8 -top-8 h-[62%] w-[62%] rounded-full border border-white/60" />
-              <div className="absolute -bottom-28 -start-24 h-[68%] w-[68%] rounded-full border border-clay-500/20" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_47%,rgba(255,255,255,0.36),transparent_56%)]" />
-            </div>
-
-            <div className="relative flex h-full flex-col justify-between rounded-[1.5rem] border border-white/55 bg-white/15 p-5 backdrop-blur-[1px] sm:rounded-[2rem] sm:p-8">
-              <div className="flex items-center justify-between gap-3 text-[10px] font-bold uppercase tracking-[0.18em] text-sage-800/80 sm:text-xs">
-                <span>{t.destinationLabel}</span>
-                <span className="h-px flex-1 bg-sage-800/20" aria-hidden="true" />
-                <span>Afytos / 01</span>
-              </div>
-
-              {destination ? (
-                <div className="relative py-5 text-center">
-                  <div className="absolute inset-x-0 top-1/2 -z-10 mx-auto h-44 w-44 -translate-y-1/2 rounded-full border border-white/35 sm:h-60 sm:w-60" />
-                  <div className="absolute inset-x-0 top-1/2 -z-10 mx-auto h-56 w-56 -translate-y-1/2 rounded-full border border-white/25 sm:h-72 sm:w-72" />
-                  <CountryFlag
-                    country={destination.flag}
-                    label={lang === 'ar' ? `علم ${destination.name[lang]}` : `${destination.name[lang]} flag`}
-                    className="mx-auto w-40 drop-shadow-[0_12px_18px_rgba(91,60,46,0.12)] sm:w-52"
-                  />
-                  <p className="mt-5 font-serif text-[clamp(2.5rem,7vw,5rem)] font-medium leading-none tracking-[-0.04em] text-sage-950">
-                    {destination.name[lang]}
-                  </p>
-                  <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.22em] text-sage-800/70 sm:text-xs">
-                    {t.dateLabel}
-                  </p>
-                  {destination.date && (
-                    <p className="mt-2 text-sm font-semibold text-sage-900 sm:text-base" dir="auto">
-                      {destination.date[lang]}
-                    </p>
-                  )}
-                </div>
-              ) : (
-                <div className="py-14 text-center sm:py-20">
-                  <div className="mx-auto grid h-24 w-24 place-items-center rounded-full border border-white/45 bg-white/15 text-sage-800/70 sm:h-32 sm:w-32">
-                    <span className="font-serif text-5xl sm:text-6xl" aria-hidden="true">A</span>
-                  </div>
-                  <p className="mt-6 font-serif text-3xl text-sage-950 sm:text-5xl">
-                    {t.fallbackTitle}
-                  </p>
-                </div>
-              )}
-
-              <div className="flex items-end justify-between gap-4 border-t border-sage-900/15 pt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-sage-800/75 sm:pt-5 sm:text-xs">
-                <span>Centre Afytos</span>
-                <span className="text-end">International<br className="sm:hidden" /> edition</span>
-              </div>
-            </div>
+        <div className="sr-reveal mx-auto w-full max-w-[600px] lg:me-0">
+          <div className="overflow-hidden rounded-[1.5rem] border border-clay-200/80 bg-clay-100 shadow-[0_28px_80px_rgba(91,60,46,0.14)] sm:rounded-[2rem]">
+            <img
+              src={heroImage}
+              alt={
+                lang === 'ar'
+                  ? 'الدكتور شكري يقدّم جلسة عناية لمراجع في مركز Afytos'
+                  : 'Dr Chokri providing hands-on care to a visitor at Centre Afytos'
+              }
+              className="aspect-[1.55] w-full object-cover object-[62%_center] sm:aspect-[1.7] lg:aspect-[1.42]"
+              loading="eager"
+              decoding="async"
+              ref={(image) => {
+                if (image) image.fetchPriority = 'high';
+              }}
+            />
           </div>
+          <p className="mt-3 text-end text-[10px] font-medium uppercase tracking-[0.15em] text-stone-500 sm:mt-4">
+            Centre Afytos <span className="px-1.5 text-clay-500">·</span>{' '}
+            {lang === 'ar' ? 'عناية واهتمام' : 'Care, with presence'}
+          </p>
         </div>
       </div>
     </section>
