@@ -1,4 +1,6 @@
 import specialistImage from '@/assets/images/565649738_122103237963067331_4650605682265517794_n.jpg';
+import chiropracticImage from '@/assets/images/Chiropractic.jpg';
+import therapeuticImage from '@/assets/images/Therapeutic.jpg';
 import hijamaImage from '@/assets/images/Hijama.jpg';
 
 export type Lang = 'en' | 'ar';
@@ -69,7 +71,7 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     id: 'chiropractic',
-    image: hijamaImage,
+    image: chiropracticImage,
     title: { en: 'Chiropractic care', ar: 'تقويم العمود الفقري' },
     desc: {
       en: 'A considered session focused on the areas of tension and movement you would like to discuss, with your needs and comfort guiding the approach.',
@@ -78,7 +80,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'massage',
-    image: 'src/assets/images/Therapeutic.jpg',
+    image: therapeuticImage,
     title: { en: 'Therapeutic massage', ar: 'التدليك العلاجي' },
     desc: {
       en: 'A focused, hands-on massage. The areas of focus and pressure can be discussed around your preferences and comfort.',
@@ -87,7 +89,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'hijama',
-    image: 'src/assets/images/Hijama.jpg',
+    image: hijamaImage,
     title: { en: 'Hijama', ar: 'الحجامة' },
     desc: {
       en: 'A traditional cupping practice. Dr Chokri can explain the session and what to expect before you decide to book.',
