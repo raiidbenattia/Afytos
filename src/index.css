@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply font-sans text-stone-600;
+    background-color: #fdfaf7;
+  }
+  body.rtl {
+    font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+    direction: rtl;
+    text-align: right;
+  }
+  body.ltr {
+    font-family: 'Manrope', system-ui, sans-serif;
+    direction: ltr;
+    text-align: left;
+  }
+  h1, h2, h3, h4 {
+    @apply font-sans;
+    letter-spacing: -0.02em;
+  }
+  body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4 {
+    font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .sr-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .sr-reveal.sr-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.booking-widget-frame {
+  min-height: 980px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f6f6f8;
+}
+
+.booking-widget-frame > div,
+.booking-widget-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 980px;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .booking-widget-frame,
+  .booking-widget-frame > div,
+  .booking-widget-frame iframe {
+    min-height: 1120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-widget-frame,
+  .booking-widget-frame > div,
+  .booking-widget-frame iframe {
+    min-height: 1240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sr-reveal,
+  .sr-reveal.sr-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
