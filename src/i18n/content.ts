@@ -44,22 +44,28 @@ export const NAV = {
 
 export const HERO = {
   en: {
-    eyebrow: 'Nabeul, Tunisia',
-    title: 'Care for your body, thoughtfully delivered.',
-    desc: 'Chiropractic care, therapeutic massage and hijama with Dr Chokri, in a calm and professional setting.',
-    cta: 'Book an Appointment',
-    secondary: 'Explore services',
+    eyebrow: 'INTERNATIONAL VISIT · CENTRE AFYTOS',
+    titlePrefix: 'Dr Chokri Is Coming to',
+    fallbackTitle: 'The Next Destination, Coming Soon',
+    desc: 'Follow the latest updates about the upcoming Centre Afytos visit, including confirmed dates and appointment information.',
+    fallbackDesc: 'Follow Centre Afytos for announcements about upcoming international visits.',
+    cta: 'Discover the Upcoming Visit',
+    secondary: 'Follow Our Journey',
+    destinationLabel: 'The next destination',
+    dateLabel: 'Planned visit',
   },
   ar: {
-    eyebrow: 'نابل، تونس',
-    title: 'عناية بجسدك، بكل اهتمام.',
-    desc: 'تقويم العمود الفقري والتدليك العلاجي والحجامة مع د. شكري، في بيئة هادئة ومهنية.',
-    cta: 'احجز موعدك',
-    secondary: 'اكتشف الخدمات',
+    eyebrow: 'زيارة دولية · مركز AFYTOS',
+    titlePrefix: 'الدكتور شكري قادم إلى',
+    fallbackTitle: 'الوجهة القادمة قريباً',
+    desc: 'تابعوا آخر المستجدات حول زيارة مركز Afytos القادمة، بما في ذلك المواعيد المؤكدة ومعلومات الحجز.',
+    fallbackDesc: 'تابعوا مركز Afytos لمعرفة إعلانات الزيارات الدولية القادمة.',
+    cta: 'اكتشفوا تفاصيل الزيارة القادمة',
+    secondary: 'تابعوا رحلتنا',
+    destinationLabel: 'الوجهة القادمة',
+    dateLabel: 'موعد الزيارة المبرمج',
   },
 };
-
-export const HERO_IMAGE = 'https://images.pexels.com/photos/6560308/pexels-photo-6560308.jpeg?auto=compress&cs=tinysrgb&w=1600';
 
 export interface Service {
   id: string;
@@ -155,6 +161,128 @@ export const INTERNATIONAL_CONTACT = {
     contactNote: 'الأرقام للاستفسار، ولا تعني وجود فروع دائمة في هذه البلدان.',
   },
 };
+
+export interface InternationalVisit {
+  id: string;
+  name: { en: string; ar: string };
+  flag: 'kw' | 'ly' | 'qa';
+  status: 'previous' | 'upcoming';
+  date?: { en: string; ar: string };
+}
+
+export const INTERNATIONAL_VISITS: InternationalVisit[] = [
+  { id: 'kuwait', name: { en: 'Kuwait', ar: 'الكويت' }, flag: 'kw', status: 'previous' },
+  { id: 'libya', name: { en: 'Libya', ar: 'ليبيا' }, flag: 'ly', status: 'previous' },
+  {
+    id: 'qatar',
+    name: { en: 'Qatar', ar: 'قطر' },
+    flag: 'qa',
+    status: 'upcoming',
+    date: { en: '12 October 2026', ar: '12 أكتوبر 2026' },
+  },
+];
+
+export const INTERNATIONAL_VISIT_SECTION = {
+  en: {
+    label: 'On the road',
+    title: 'International Visits',
+    previousIntro: 'Dr Chokri has visited',
+    upcomingIntro: 'His next planned international visit is',
+    dateIntro: 'on',
+    updatesNote: 'Follow our social media pages for updates and further details.',
+    emptyDescription: 'Follow our social media pages for updates about international visits.',
+    previousTitle: 'Previously Visited',
+    upcomingTitle: 'Upcoming Destination',
+    previousStatus: 'Previously Visited',
+    upcomingStatus: 'Upcoming Visit',
+    dateToBeAnnounced: 'Dates to be announced',
+    emptyPrevious: 'Confirmed previous visits will be shared here.',
+    emptyUpcoming: 'The next destination will be announced soon.',
+  },
+  ar: {
+    label: 'محطات الرحلة',
+    title: 'الزيارات الدولية',
+    previousIntro: 'سبق للدكتور شكري زيارة',
+    upcomingIntro: 'والزيارة الدولية القادمة مبرمجة إلى',
+    dateIntro: 'يوم',
+    updatesNote: 'تابعوا صفحاتنا على مواقع التواصل الاجتماعي للاطلاع على آخر المستجدات والتفاصيل.',
+    emptyDescription: 'تابعوا صفحاتنا على مواقع التواصل الاجتماعي لمعرفة آخر مستجدات الزيارات الدولية.',
+    previousTitle: 'زيارات سابقة',
+    upcomingTitle: 'الوجهة القادمة',
+    previousStatus: 'زيارة سابقة',
+    upcomingStatus: 'زيارة قادمة',
+    dateToBeAnnounced: 'سيُعلن عن الموعد لاحقاً',
+    emptyPrevious: 'سنشارك هنا الزيارات السابقة بعد تأكيدها.',
+    emptyUpcoming: 'سيُعلن عن الوجهة القادمة قريباً.',
+  },
+};
+
+export interface SocialPlatform {
+  id: 'tiktok' | 'instagram' | 'facebook';
+  name: string;
+  url: string;
+  followers: string | null;
+}
+
+export const SOCIAL_PLATFORMS: SocialPlatform[] = [
+  {
+    id: 'tiktok',
+    name: 'TikTok',
+    followers: '700K+',
+    url: 'https://www.tiktok.com/@centreafytos/',
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram',
+    followers: '255K+',
+    url: 'https://www.instagram.com/centre_afytos/',
+  },
+  {
+    id: 'facebook',
+    name: 'Facebook',
+    followers: '200k+',
+    url: 'https://www.facebook.com/centreafytos/',
+  },
+];
+
+export const COMMUNITY = {
+  en: {
+    label: 'Follow our journey',
+    title: 'A Community That Keeps Growing',
+    description:
+      'Follow Centre Afytos on social media for updates, shared moments, and stories from our community.',
+    follow: 'Follow on',
+    visit: 'Visit',
+    followers: 'followers',
+    storiesTitle: 'Stories from Our Community',
+    storiesEmpty: 'Approved community stories will appear here.',
+    storyLink: 'View original post',
+  },
+  ar: {
+    label: 'تابعوا رحلتنا',
+    title: 'مجتمعنا يكبر بكم',
+    description:
+      'تابعوا مركز Afytos على مواقع التواصل الاجتماعي للاطلاع على آخر المستجدات واللحظات التي نشاركها مع مجتمعنا.',
+    follow: 'تابعونا على',
+    visit: 'زوروا',
+    followers: 'متابع',
+    storiesTitle: 'حكايات من مجتمعنا',
+    storiesEmpty: 'ستظهر هنا الحكايات التي نملك موافقة على مشاركتها.',
+    storyLink: 'مشاهدة المنشور الأصلي',
+  },
+};
+
+export interface CommunityStory {
+  id: string;
+  media:
+    | { type: 'image'; src: string; alt: { en: string; ar: string } }
+    | { type: 'video'; src: string; poster?: string };
+  name?: { en: string; ar: string };
+  caption?: { en: string; ar: string };
+  postUrl?: string;
+}
+
+export const COMMUNITY_STORIES: CommunityStory[] = [];
 
 export interface Testimonial {
   id: string;

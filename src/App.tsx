@@ -6,7 +6,9 @@ import { Services } from '@/components/Services';
 import { Specialist } from '@/components/Specialist';
 import { PatientStat } from '@/components/PatientStat';
 import { InternationalContact } from '@/components/InternationalContact';
+import { InternationalVisits } from '@/components/InternationalVisits';
 import { Testimonials } from '@/components/Testimonials';
+import { Community } from '@/components/Community';
 import { BookingWidget } from '@/components/BookingWidget';
 import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
@@ -19,11 +21,13 @@ function LandingPage() {
       <Header />
       <main>
         <Hero />
+        <InternationalVisits />
         <Services />
         <Specialist />
         <PatientStat />
         <InternationalContact />
         <Testimonials />
+        <Community />
         <BookingWidget />
         <FAQ />
       </main>
