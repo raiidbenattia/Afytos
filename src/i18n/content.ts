@@ -1,4 +1,5 @@
 import specialistImage from '@/assets/images/565649738_122103237963067331_4650605682265517794_n.jpg';
+import hijamaImage from '@/assets/images/Hijama.jpg';
 
 export type Lang = 'en' | 'ar';
 
@@ -68,7 +69,7 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     id: 'chiropractic',
-    image: 'src/assets/images/Chiropractic.jpg',
+    image: hijamaImage,
     title: { en: 'Chiropractic care', ar: 'تقويم العمود الفقري' },
     desc: {
       en: 'A considered session focused on the areas of tension and movement you would like to discuss, with your needs and comfort guiding the approach.',
